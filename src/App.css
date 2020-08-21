@@ -1,5 +1,8 @@
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -35,4 +38,94 @@
   to {
     transform: rotate(360deg);
   }
+}
+h1 {font-size: 1.3em;}
+h2 {font-size: 1em; font-weight: 600; margin:0.3em;}
+
+.modal { 
+  position: fixed;
+  border: 1px solid grey;
+  background-color: white;
+  width: 320px;
+  height: 200px;
+  margin: auto;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  border-radius: 1em;
+}
+
+.background { 
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.row {
+  display: flex;
+}
+
+.timezone {
+  /* margin-bottom: 0.4em; */
+}
+
+.time{
+  flex:1;
+  padding: 0.4em 0.2em;
+  margin: 0.2em 0.05em;
+  border-radius: 0.3em;
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color:rgb(53, 59, 63);
+  min-width: 30px;
+  max-width: 50px;
+}
+
+.now { 
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  background-color: turquoise;
+  color: white;
+}
+
+.title {
+  position: relative;
+  width: 50px;
+  overflow: scroll;
+}
+
+.tag{
+  position: absolute;
+  left:100px;
+  top:0;
+  background-color: white;
+  padding: 0.4em 0.8em;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  border-radius: 0.4em;
+  font-size: small;
+  white-space: nowrap;
+}
+
+.btnNewDate {
+  padding: 0.7em 1.5em;
+  margin-top: 1em;
+  border:none;
+  border-radius: .7em;
+  margin:auto;
+  margin-top: 1em;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.scroll { 
+  overflow-y: scroll;
+  max-height: 500px;
+  margin:auto;  
+}
+
+.highlight { 
+  background-color: lightcoral;
 }
