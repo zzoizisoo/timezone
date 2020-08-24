@@ -210,3 +210,19 @@ h2 {font-size: 1em; font-weight: 600; margin:0.3em;}
 .center{ 
   justify-content: center;
 }
+
+.btn{ 
+  border: none;
+  border-radius: 0.3em;
+  font-weight: bold;
+}
+
+.tag h3{ 
+  margin-bottom: 0.3em;
+}
+
+.btn.delete{ 
+  color: white;
+  background-color: rgb(196, 41, 41);
+  margin: 0.5em 0;
+}

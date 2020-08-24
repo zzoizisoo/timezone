@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import storage from './storage';
 
 import {Header, TimezoneUnit, ModalAdd} from './components'
@@ -22,6 +22,10 @@ function App() {
   const handleToggleAlign = () => setAlign(align === "horizontal" ? "vertical" : "horizontal")
 
   const handleSubmit = (entry) => {
+    if(!entry.title) {
+      alert('Please enter title'); 
+      return;
+    }
     const _tz = storage.local.timezone.get()
     const _entry = {id: Date.now(), ...entry, highlight:[]}
     setTimezones(_tz ? [..._tz, _entry] : [_entry])
@@ -36,12 +40,17 @@ function App() {
     setTimezones(tzn)
   }
 
+  const handleDelete = (id) => {
+    const tzn = timezones.filter(t=> t.id !== id)
+    setTimezones(tzn)
+  }
+
   return (
     <div className="App">
      <Header onPressAdd={handleToggleModal} onPressAlign={handleToggleAlign} />
       <div className={`contents ${align}`}>
        {timezones && timezones.map(t=> 
-        <TimezoneUnit key={t.id} timezone={t} handleHighlight={handleHighlight} align={align}/>
+        <TimezoneUnit align={align} key={t.id} timezone={t} handleHighlight={handleHighlight} handleDelete={handleDelete} />
       )}
       </div>
      {isModal && <ModalAdd handleClick={handleToggleModal} handleSubmit={handleSubmit}/> }
