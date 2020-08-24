@@ -15,7 +15,7 @@ function App() {
 
   useEffect(()=> {
     if(!timezones || timezones.length === 0) toggleModal(true)
-  })
+  }, [timezones])
   
   const handleToggleModal = () => toggleModal(!isModal)
   const handleToggleAlign = () => {
