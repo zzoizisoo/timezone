@@ -7,21 +7,19 @@ import './App.css';
 function App() {
   const [isModal, toggleModal] = useState(false)
   const [timezones, setTimezones] = useState(storage.local.timezone.get())
-  const [align, setAlign] = useState("horizontal")
+  const [align, setAlign] = useState(storage.local.align.get())
   
   useEffect(()=>{
+    if(!timezones || timezones.length === 0) toggleModal(true)
      storage.local.timezone.set(timezones)
   }, [timezones])
 
   useEffect(()=> {
-    if(!timezones || timezones.length === 0) toggleModal(true)
-  }, [timezones])
+    storage.local.align.set(align)
+  }, [align])
   
   const handleToggleModal = () => toggleModal(!isModal)
-  const handleToggleAlign = () => {
-    setAlign(align === "horizontal" ? "vertical" : "horizontal")
-    console.log(align)
-  }
+  const handleToggleAlign = () => setAlign(align === "horizontal" ? "vertical" : "horizontal")
 
   const handleSubmit = (entry) => {
     const _tz = storage.local.timezone.get()
@@ -32,9 +30,7 @@ function App() {
 
   const handleHighlight = (id, h) => {
     const tzn = timezones.reduce((acc, cur)=>{
-      if (cur.id === id) {
-        cur = {...cur, highlight: h}
-      }
+      if (cur.id === id) {cur = {...cur, highlight: h}}
       return [...acc, cur];
     }, [])
     setTimezones(tzn)
