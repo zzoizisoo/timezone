@@ -3,6 +3,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .App-logo {
@@ -42,6 +43,37 @@
 h1 {font-size: 1.3em;}
 h2 {font-size: 1em; font-weight: 600; margin:0.3em;}
 
+.header{ 
+  display: flex;
+  justify-content: space-between;
+  padding: 0em 0.5em;
+  background-color: #282c34;
+  color: whitesmoke;
+}
+
+.header button{ 
+  border-radius: 2em;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  color: white;
+}
+
+.header-buttons {
+  display: flex;
+  margin-top: 6px;
+  justify-content: center;
+}
+
+.header-buttons .arrange {
+  
+}
+
+.header-buttons .add {
+  
+}
+
+
 .modal { 
   position: fixed;
   border: 1px solid grey;
@@ -53,7 +85,47 @@ h2 {font-size: 1em; font-weight: 600; margin:0.3em;}
   bottom:0;
   right:0;
   left:0;
+  padding: 1em;
   border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.modal input{ 
+  font-size: 1.2em;
+  border-radius: 10px;
+  border: 1px solid grey;  
+}
+
+.modal .title{ 
+  height: 26px;
+  border-radius: 10px 0px 0px 10px;
+  flex:1;
+}
+
+.modal .options {
+  height: 30px;
+  border-radius: 0px 10px 10px 0px;
+  background-color: #282c34;
+  color: white;
+  border:none;
+}
+
+.modal .tags{ 
+  font-size: 1em;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid grey;
+}
+
+.modal .btn {
+  background-color: #282c34;
+  border: none;
+  color: white;
+  font-size: 1.3em;
+  padding: 0.3em;
+  border-radius: 10px;
 }
 
 .background { 
@@ -65,12 +137,34 @@ h2 {font-size: 1em; font-weight: 600; margin:0.3em;}
   background-color: rgba(0,0,0,0.4);
 }
 
-.row {
+.contents{ 
+ display: flex;
+  flex: 1;
+  overflow: scroll;
+  margin: 0.2em;
+}
+.contents.horizontal{ 
+  flex-direction: column;
+}
+.contents.vertical{ 
+  flex-direction: row;
+}
+
+.timezone_unit { 
+  position: relative;
+}
+
+.timezone_unit.horizontal{ 
   display: flex;
 }
 
-.timezone {
-  /* margin-bottom: 0.4em; */
+.timezone_unit .title{ 
+    flex:1;
+    min-width: 60px;
+    max-width: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .time{
@@ -78,7 +172,7 @@ h2 {font-size: 1em; font-weight: 600; margin:0.3em;}
   padding: 0.4em 0.2em;
   margin: 0.2em 0.05em;
   border-radius: 0.3em;
-  background-color: #f4f4f4;
+  background-color: #dddee0;
   font-weight: bold;
   color:rgb(53, 59, 63);
   min-width: 30px;
@@ -91,15 +185,9 @@ h2 {font-size: 1em; font-weight: 600; margin:0.3em;}
   color: white;
 }
 
-.title {
-  position: relative;
-  width: 50px;
-  overflow: scroll;
-}
-
 .tag{
   position: absolute;
-  left:100px;
+  left: 55px;
   top:0;
   background-color: white;
   padding: 0.4em 0.8em;
@@ -107,25 +195,18 @@ h2 {font-size: 1em; font-weight: 600; margin:0.3em;}
   border-radius: 0.4em;
   font-size: small;
   white-space: nowrap;
+  z-index: 1;
 }
 
-.btnNewDate {
-  padding: 0.7em 1.5em;
-  margin-top: 1em;
-  border:none;
-  border-radius: .7em;
-  margin:auto;
-  margin-top: 1em;
-  font-weight: bold;
-  box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-}
-
-.scroll { 
-  overflow-y: scroll;
-  max-height: 500px;
-  margin:auto;  
-}
 
 .highlight { 
   background-color: lightcoral;
+}
+
+.d-flex{ 
+  display: flex;
+}
+
+.center{ 
+  justify-content: center;
 }
